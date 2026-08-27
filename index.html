@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,interactive-widget=resizes-content">
+<meta name="theme-color" content="#fffaf7"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="default"><title>Dawnielle's Day</title><link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="cozyScene" aria-hidden="true">
+  <span class="spark spark1">✦</span>
+  <span class="spark spark2">✿</span>
+  <span class="spark spark3">⋆</span>
+  <span class="leaf leaf1">❧</span>
+  <span class="leaf leaf2">❦</span>
+  <div class="tinyFriend">🐈</div>
+</div>
+<main class="app">
+<header><div><small id="weekday"></small><h1 id="date"></h1></div><button class="icon" id="settingsBtn" aria-label="Settings">⚙️</button></header>
+
+<div id="viewToday" class="view active-view">
+<section class="welcome"><div class="flower">🌻</div><div><b>Good morning, Dawnielle.</b><h2 id="welcome">A little space for today.</h2><p id="support">Let's just notice where you are.</p></div></section>
+
+<section class="card checkin">
+<label>CHECK IN</label><h3>How are you feeling? 🐱</h3>
+<p class="gentle">No score. No judgment. Just a place to notice what's going on.</p>
+<div class="moods"><button data-mood="good">😊<small>Good</small></button><button data-mood="okay">😐<small>Okay</small></button><button data-mood="stressed">😟<small>Stressed</small></button><button data-mood="tired">😴<small>Tired</small></button><button data-mood="low">😔<small>Low</small></button><button data-mood="frustrated">😤<small>Frustrated</small></button><button data-mood="annoyed">😒<small>Annoyed</small></button></div>
+<label>ENERGY</label><div class="energy"><button data-energy="high">🔋 High</button><button data-energy="medium">⚡ Medium</button><button data-energy="low">🪫 Low</button></div>
+<textarea id="thoughts" rows="3" placeholder="What's on your mind? You don't have to make it make sense."></textarea>
+</section>
+
+<section class="card daySetup" id="daySetup">
+<div class="row"><div><label>START YOUR DAY</label><h3>How would you like support today?</h3></div><span>🌱</span></div>
+<p>Choose the amount of structure you want. You can change it whenever you need to.</p>
+<div class="setupModeGrid">
+<button data-daymode="guided">🌿 Gentle guidance<small>Suggestions with room to choose</small></button>
+<button data-daymode="structured">📋 More structure<small>Clear steps when you want them</small></button>
+<button data-daymode="mixed">🌗 A mix<small>Different styles for different parts</small></button>
+</div>
+<button class="softButton" id="editDayBtn">Set up my day</button>
+</section>
+<section class="card guidance"><div class="row"><div><label id="phaseLabel">RIGHT NOW</label><h3 id="clock"></h3></div><span id="phaseIcon">💛</span></div>
+<p id="phaseText"></p><div class="guidanceBox"><label>A PLACE TO START</label><strong id="nextTask"></strong><small id="nextReason"></small></div>
+<p class="tiny" id="guidanceFooter">This is an invitation, not an instruction.</p></section>
+
+<section class="card work"><div class="row"><div><label>WORK</label><h3>Your route 🚚</h3></div></div><p id="workTone">Just focus on where you are, not the whole route.</p>
+<button class="window" id="packageWindow"><b id="windowTitle">7:00–9:00 AM</b><span id="windowText">Sort &amp; plan your route</span></button>
+<div class="stats"><div><label>PACKAGES</label><b id="packages">—</b></div><div><label>BASE EARNINGS</label><b id="earnings">$0.00</b></div></div>
+<div class="delivery"><button id="minus">−</button><div><b id="delivered">0</b><small>delivered</small></div><button id="plus">+</button></div><div class="bar"><i id="bar"></i></div><p class="tiny" id="workHint">You can track this if it helps. You don't have to.</p></section>
+
+<section class="card impulse"><div class="row"><div><label>PAUSE</label><h3>Feeling an impulse? 🛑</h3></div><span>💜</span></div><p>You don't have to act on a feeling immediately.</p><div class="pauseGrid"><button data-pause="Pause">🛑<small>Pause</small></button><button data-pause="Feeling">💭<small>Name it</small></button><button data-pause="Need">❤️<small>What do I need?</small></button><button data-pause="Choice">✅<small>Choose</small></button></div><p id="pauseText" class="pauseText"></p></section>
+
+<section class="card reflection"><label>SOMETHING TO NOTICE</label><h3 id="patternTitle">You don't have to have a perfect day.</h3><p id="patternText">What you feel is information. It doesn't have to become a verdict about you.</p></section>
+
+<section class="card directiveNotice" id="directiveNotice" hidden>
+<label>A REMINDER YOU CHOSE</label><h3 id="directiveTitle">You set this as a direction.</h3><p id="directiveText"></p><div class="directiveActions"><button class="primary" id="directiveKeep">Keep it directional</button><button class="secondary" id="directiveOptional">Make it optional from now on</button></div>
+</section>
+
+<section><div class="row sectionHead"><div><label>OPTIONAL</label><h3>Small things for today</h3></div><b id="count">0/5</b></div><div class="tasks" id="essentialTasks"><label><input type="checkbox"><i></i><span>Morning hygiene</span></label><label><input type="checkbox"><i></i><span>Eat</span></label><label><input type="checkbox"><i></i><span>Pet care</span></label><label><input type="checkbox"><i></i><span>Prepare for tomorrow</span></label><label><input type="checkbox"><i></i><span>Apartment reset</span></label></div><p class="tiny listNote">These are here if they help. They are not a measure of how well you did today.</p></section>
+
+<section class="card mysteryNote" id="mysteryNote">
+  <div class="mysteryMark">✦</div>
+  <div><label>A LITTLE NOTE</label><p id="mysteryText">The cat has no idea what you're supposed to do next.</p></div>
+</section>
+<section class="card evening"><label>TONIGHT</label><h3>Protect your evening 🌙</h3><p id="eveningText">Handle what matters, then let the last part of the day belong to you.</p><div class="times"><b>6 PM<small>Responsibilities</small></b><span>→</span><b>8 PM<small>Relax</small></b><span>→</span><b>10 PM<small>Bed</small></b></div></section>
+</div>
+
+<div id="viewSupport" class="view"><div class="pageHead"><div><label>SUPPORT</label><h2>I'm here.</h2><p>You can ask for help without handing over the decision.</p></div></div><section class="card supportCard"><h3>What kind of help would feel useful?</h3><p>Choose one, or don't. You can close this whenever you want.</p><div class="supportChoices"><button data-support="overwhelmed">😵 I'm overwhelmed</button><button data-support="hard">😔 I'm having a hard day</button><button data-support="frustrated">😤 I'm frustrated</button><button data-support="tired">😴 I'm exhausted</button><button data-support="thoughts">🌀 My thoughts won't slow down</button><button data-support="unsure">🤷 I don't know</button><button data-support="okay">💛 I'm actually doing okay</button><button data-support="myself">🌱 I want to figure this out myself</button></div><div class="supportResponse" id="supportResponse"><b>You stay in charge.</b><p>I'll offer a little space or a question to help you find your own next step.</p></div></section></div>
+
+<div id="viewReflect" class="view"><div class="pageHead"><div><label>REFLECT</label><h2>What do you notice?</h2><p>This isn't an analysis of you. It's a place to hear yourself.</p></div></div><section class="card reflection"><label>YOUR CHECK-IN</label><h3 id="reflectMood">Nothing has to be figured out.</h3><p id="reflectThought">Write what you want to remember about this moment. You can come back to it later.</p></section><section class="card reflectionPrompt"><label>A QUESTION, IF YOU WANT ONE</label><h3 id="reflectQuestion">What do you need more of right now?</h3><p id="reflectPrompt">You don't have to answer perfectly. Even “I don't know” is an answer.</p><button class="softButton" id="newQuestion">Another question</button></section></div>
+
+<div id="viewNotes" class="view"><div class="pageHead"><div><label>NOTES</label><h2>Your words.</h2><p>Keep anything you want to remember, revisit, or simply get out of your head.</p></div><button class="smallAdd" id="noteAdd">+ Note</button></div><div id="notesList" class="notesList"></div></div>
+</main>
+
+<nav><button class="navBtn active" data-view="Today">☀️<small>Today</small></button><button class="navBtn" data-view="Support">💜<small>Support</small></button><button class="add" id="quickAdd" aria-label="Write a note">+</button><button class="navBtn" data-view="Reflect">🌱<small>Reflect</small></button><button class="navBtn" data-view="Notes">📝<small>Notes</small></button></nav>
+
+<div class="modal" id="editorModal"><div class="modalBox"><button class="close" id="editorClose">×</button><label id="editorLabel">TASK</label><h2 id="editorTitle">Add something to your day.</h2><input id="editorInput" class="editorInput" placeholder="What would you like to remember?"><div class="taskEditorOptions"><label>TIME<input id="editorTime" type="time"></label><label>STYLE<select id="editorMode"><option value="guided">Gentle guidance</option><option value="structured">More structured</option></select></label></div><textarea id="editorNote" class="editorNote" rows="6" placeholder="Optional details..."></textarea><div class="editorActions"><button class="secondary" id="editorCancel">Cancel</button><button class="primary" id="editorSave">Save note</button></div></div></div>
+<div class="modal" id="dayModal"><div class="modalBox">
+<button class="close" id="dayClose">×</button><div class="modalIcon">🌱</div><label>YOUR DAY, YOUR WAY</label>
+<h2>Choose your structure.</h2><p>You decide which parts of the day should guide you gently and which should be more direct.</p>
+<div class="dayModeChoice">
+<button data-daymode-modal="guided"><b>🌿 Gentle guidance</b><small>“You could start here if that feels useful.”</small></button>
+<button data-daymode-modal="structured"><b>📋 More structure</b><small>“Now: do this. Then: do this.”</small></button>
+<button data-daymode-modal="mixed"><b>🌗 A mix</b><small>Choose the style section by section.</small></button>
+</div>
+<h3 class="setupHeading">Parts of the day</h3><div class="sectionModes">
+<label><span>🌅 Morning</span><select data-section="morning"><option value="guided">Guided</option><option value="structured">Structured</option></select></label>
+<label><span>🚚 Work</span><select data-section="work"><option value="guided">Guided</option><option value="structured">Structured</option></select></label>
+<label><span>🏠 Evening</span><select data-section="evening"><option value="guided">Guided</option><option value="structured">Structured</option></select></label>
+<label><span>🌙 Wind down</span><select data-section="wind"><option value="guided">Guided</option><option value="structured">Structured</option></select></label>
+</div><h3 class="setupHeading">Your own reminders</h3>
+<div class="reminderPreset">
+<label><input type="checkbox" id="morningDirectiveEnabled"><span>🌅 Morning reminder</span></label>
+<div class="reminderRow"><input id="morningDirectiveTime" type="time" value="08:00"><input id="morningDirectiveText" placeholder="What do you want this to say?"></div>
+</div>
+<div class="reminderPreset">
+<label><input type="checkbox" id="nightDirectiveEnabled"><span>🌙 Night reminder</span></label>
+<div class="reminderRow"><input id="nightDirectiveTime" type="time" value="21:00"><input id="nightDirectiveText" placeholder="What do you want this to say?"></div>
+</div>
+<div class="reminderPreset">
+<label><input type="checkbox" id="fridayDirectiveEnabled"><span>⭐ Friday morning extra</span></label>
+<div class="reminderRow"><input id="fridayDirectiveTime" type="time" value="08:30"><input id="fridayDirectiveText" placeholder="What do you want this to say?"></div>
+</div>
+<div class="customReminderBox"><b>Add another reminder</b><div class="reminderRow"><input id="customTaskText" placeholder="Task or reminder"><input id="customTaskTime" type="time" value="10:00"></div><div class="reminderRow"><select id="customTaskMode"><option value="guided">Gentle guidance</option><option value="structured">More structured</option></select><select id="customTaskRepeat"><option value="once">Today only</option><option value="daily">Every day</option><option value="friday">Fridays</option></select></div><button class="softButton" id="addCustomReminder">+ Add reminder</button></div>
+<div id="customReminderList" class="customReminderList"></div>
+
+<h3 class="setupHeading">Things you want included</h3><div class="planChoices">
+<label><input type="checkbox" data-plan="morning"><span>Morning routine</span></label><label><input type="checkbox" data-plan="work"><span>Work / delivery</span></label>
+<label><input type="checkbox" data-plan="food"><span>Food / meals</span></label><label><input type="checkbox" data-plan="pet"><span>Pet care</span></label>
+<label><input type="checkbox" data-plan="reset"><span>Home reset</span></label><label><input type="checkbox" data-plan="tomorrow"><span>Prepare for tomorrow</span></label>
+</div><button class="primary" id="saveDayBtn">Save today's plan</button>
+</div></div><div class="modal" id="settingsModal"><div class="modalBox"><button class="close" id="settingsClose">×</button><label>SETTINGS</label><h2>Keep it simple.</h2><p>These controls only manage what's saved in this browser.</p><button class="settingBtn" id="resetToday">Reset today's check-in</button><button class="settingBtn danger" id="clearAll">Clear saved data</button></div></div>
+<script src="data.js"></script><script src="app.js"></script>
+</body></html>
